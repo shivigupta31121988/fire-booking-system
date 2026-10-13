@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "1.0.0",
+  "product": "fire-building",
+  "title": "Building fire protection insurance",
+  "subtitle": "Cover for your building against fire, for 5 years",
+  "country": "IE",
+  "currency": "EUR",
+  "locale": "en-IE",
+  "policyTermYears": 5,
+  "upload": {
+    "maxFileSizeMB": 200,
+    "maxFiles": 10,
+    "accept": [".pdf", ".jpg", ".jpeg", ".png", ".docx", ".xlsx", ".zip"]
+  },
+  "pages": [
+    {
+      "id": "building",
+      "title": "Your building",
+      "description": "Tell us about the building you want to insure. Your answers are kept as you move between pages.",
+      "fields": [
+        { "key": "applicantName", "type": "text", "label": "Full name or company name", "required": true, "width": "half",
+          "validators": { "minLength": 2, "maxLength": 120 } },
+        { "key": "email", "type": "text", "label": "Email address", "required": true, "width": "half", "placeholder": "name@example.ie",
+          "validators": { "pattern": "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "patternMessage": "Enter a valid email address" } },
+        { "key": "phone", "type": "text", "label": "Phone number", "required": true, "width": "half", "placeholder": "087 123 4567 or +353 87 123 4567",
+          "validators": { "pattern": "^(?:\\+353|0)[\\s-]?\\d{1,2}[\\s-]?\\d{3}[\\s-]?\\d{3,4}$", "patternMessage": "Enter an Irish phone number, e.g. 087 123 4567" } },
+        { "key": "policyStartDate", "type": "date", "label": "Cover start date", "required": true, "width": "half",
+          "validators": { "minDate": "today", "minDateMessage": "Start date cannot be in the past" } },
+
+        { "key": "addressLine1", "type": "text", "label": "Address line 1", "required": true, "width": "half",
+          "validators": { "maxLength": 100 } },
+        { "key": "addressLine2", "type": "text", "label": "Address line 2", "width": "half",
+          "validators": { "maxLength": 100 } },
+        { "key": "townCity", "type": "text", "label": "Town or city", "required": true, "width": "third",
+          "validators": { "maxLength": 80 } },
+        { "key": "county", "type": "select", "label": "County", "required": true, "width": "third", "placeholder": "Select a county",
+          "options": [
+            {"value":"carlow","label":"Carlow"},{"value":"cavan","label":"Cavan"},{"value":"clare","label":"Clare"},
+            {"value":"cork","label":"Cork"},{"value":"donegal","label":"Donegal"},{"value":"dublin","label":"Dublin"},
+            {"value":"galway","label":"Galway"},{"value":"kerry","label":"Kerry"},{"value":"kildare","label":"Kildare"},
+            {"value":"kilkenny","label":"Kilkenny"},{"value":"laois","label":"Laois"},{"value":"leitrim","label":"Leitrim"},
+            {"value":"limerick","label":"Limerick"},{"value":"longford","label":"Longford"},{"value":"louth","label":"Louth"},
+            {"value":"mayo","label":"Mayo"},{"value":"meath","label":"Meath"},{"value":"monaghan","label":"Monaghan"},
+            {"value":"offaly","label":"Offaly"},{"value":"roscommon","label":"Roscommon"},{"value":"sligo","label":"Sligo"},
+            {"value":"tipperary","label":"Tipperary"},{"value":"waterford","label":"Waterford"},{"value":"westmeath","label":"Westmeath"},
+            {"value":"wexford","label":"Wexford"},{"value":"wicklow","label":"Wicklow"}
+          ] },
+        { "key": "eircode", "type": "text", "label": "Eircode", "required": true, "width": "third", "placeholder": "D02 X285", "transform": "uppercase",
+          "validators": { "pattern": "^(?:[AC-FHKNPRTV-Y][0-9]{2}|D6W)\\s?[0-9AC-FHKNPRTV-Y]{4}$", "patternMessage": "Enter a valid Eircode, e.g. D02 X285" } },
+
+        { "key": "buildingType", "type": "select", "label": "Building type", "required": true, "width": "half", "placeholder": "Select a type",
+          "options": [
+            {"value":"residential_block","label":"Apartment block / residential"},
+            {"value":"office","label":"Office"},
+            {"value":"retail","label":"Retail"},
+            {"value":"industrial","label":"Industrial / warehouse"},
+            {"value":"mixed_use","label":"Mixed use"},
+            {"value":"hospitality","label":"Hotel / pub / restaurant"},
+            {"value":"other","label":"Other"}
+          ] },
+        { "key": "constructionMaterial", "type": "select", "label": "Main construction", "required": true, "width": "half", "placeholder": "Select construction",
+          "options": [
+            {"value":"concrete_steel","label":"Concrete or steel frame"},
+            {"value":"masonry","label":"Masonry / brick / block"},
+            {"value":"timber","label":"Timber frame"},
+            {"value":"mixed","label":"Mixed"}
+          ] },
+        { "key": "roofType", "type": "select", "label": "Roof type", "required": true, "width": "half", "placeholder": "Select roof",
+          "options": [
+            {"value":"slate_tile","label":"Slate or tile"},
+            {"value":"flat_membrane","label":"Flat membrane"},
+            {"value":"metal","label":"Metal sheeting"},
+            {"value":"thatch","label":"Thatch"},
+            {"value":"other","label":"Other"}
+          ] },
+        { "key": "yearBuilt", "type": "number", "label": "Year built", "required": true, "width": "half",
+          "validators": { "min": 1700, "max": 2026 } },
+        { "key": "numberOfFloors", "type": "number", "label": "Number of floors", "required": true, "width": "third",
+          "validators": { "min": 1, "max": 60 } },
+        { "key": "heightMetres", "type": "number", "label": "Building height", "required": true, "width": "third", "suffix": "m",
+          "help": "Ground to highest point of the roof",
+          "validators": { "min": 2, "max": 250 } },
+        { "key": "floorAreaSqm", "type": "number", "label": "Total floor area", "required": true, "width": "third", "suffix": "m²",
+          "validators": { "min": 20, "max": 200000 } },
+
+        { "key": "fireProtection", "type": "checkboxGroup", "label": "Fire protection in place", "width": "full",
+          "help": "Select everything that applies",
+          "options": [
+            {"value":"sprinklers","label":"Sprinkler system"},
+            {"value":"smoke_detection","label":"Smoke / heat detection"},
+            {"value":"monitored_alarm","label":"Monitored fire alarm"},
+            {"value":"extinguishers","label":"Fire extinguishers"},
+            {"value":"fire_doors","label":"Fire doors / compartmentation"},
+            {"value":"emergency_lighting","label":"Emergency lighting"}
+          ] },
+        { "key": "hasFireSafetyCert", "type": "radio", "label": "Does the building have a Fire Safety Certificate?", "required": true, "width": "half",
+          "options": [ {"value":"yes","label":"Yes"}, {"value":"no","label":"No"}, {"value":"not_required","label":"Not required"} ] },
+        { "key": "sumInsured", "type": "number", "label": "Sum insured (rebuild cost)", "required": true, "width": "half", "prefix": "€",
+          "help": "What it would cost to rebuild the building",
+          "validators": { "min": 50000, "max": 500000000 } },
+        { "key": "policyTerm", "type": "readonly", "label": "Policy term", "width": "half", "default": "5 years" }
+      ]
+    },
+    {
+      "id": "claims",
+      "title": "Claims history and documents",
+      "description": "Tell us about any claims in the last 5 years and attach supporting documents. You can add several files at once; uploads continue in the background while you move between pages.",
+      "fields": [
+        { "key": "hasPriorClaims", "type": "radio", "label": "Any fire or property claims on this building in the last 5 years?", "required": true, "width": "full",
+          "options": [ {"value":"no","label":"No"}, {"value":"yes","label":"Yes"} ] },
+        { "key": "numberOfClaims", "type": "number", "label": "Number of claims", "required": true, "width": "half",
+          "visibleWhen": { "field": "hasPriorClaims", "equals": "yes" },
+          "validators": { "min": 1, "max": 50 } },
+        { "key": "totalClaimsValue", "type": "number", "label": "Total value of claims", "required": true, "width": "half", "prefix": "€",
+          "visibleWhen": { "field": "hasPriorClaims", "equals": "yes" },
+          "validators": { "min": 0, "max": 500000000 } },
+        { "key": "claimsDescription", "type": "textarea", "label": "What happened?", "required": true, "width": "full",
+          "visibleWhen": { "field": "hasPriorClaims", "equals": "yes" },
+          "help": "Briefly describe each claim and what has changed since",
+          "validators": { "maxLength": 2000 } },
+        { "key": "previousInsurer", "type": "text", "label": "Current or previous insurer", "width": "half",
+          "validators": { "maxLength": 100 } },
+        { "key": "documents", "type": "file", "label": "Supporting documents", "width": "full",
+          "requiredWhen": { "field": "hasPriorClaims", "equals": "yes" },
+          "help": "Claims letters, Fire Safety Certificate, building survey, photos. PDF, JPG, PNG, DOCX, XLSX or ZIP." },
+        { "key": "declaration", "type": "checkbox", "label": "I confirm the information given is accurate and complete to the best of my knowledge.", "required": true, "width": "full" }
+      ]
+    }
+  ]
+}
